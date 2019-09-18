@@ -68,5 +68,10 @@ The `.env` file is ignored by git keeping those secrets out of your repo.
 3. Follow instructions at [https://github.com/luggit/react-native-config#setup](https://github.com/luggit/react-native-config#setup)
 4. Done!
 
-Day One
+## Day One
+
+Storybook integration with Reactotron
+
+## Day Two
+
 Camera panel
