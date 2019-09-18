@@ -72,6 +72,12 @@ The `.env` file is ignored by git keeping those secrets out of your repo.
 
 Storybook integration with Reactotron
 
+To run storybook do the following
+`$ npm run storybook`
+`$ react-native run-ios`
+
+In Reactotron toggle the Storybook switch to on
+
 ## Day Two
 
 Camera panel
