@@ -1,4 +1,5 @@
-import './AlertMessage.story'
-import './DrawerButton.story'
-import './FullButton.story'
-import './RoundedButton.story'
+import "./CameraPanel.story";
+import "./AlertMessage.story";
+import "./DrawerButton.story";
+import "./FullButton.story";
+import "./RoundedButton.story";
