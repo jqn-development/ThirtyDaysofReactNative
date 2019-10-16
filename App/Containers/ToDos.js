@@ -20,6 +20,7 @@ import {
   Header,
   ButtonGroup,
 } from "react-native-elements";
+import { material } from "react-native-typography";
 
 const component1 = () => (
   <Icon
@@ -97,6 +98,7 @@ class Todos extends Component {
     <ListItem
       leftIcon={{ name: "dot-single", type: "entypo" }}
       title={item.value}
+      titleStyle={material.subheading}
     />
   );
 
@@ -126,19 +128,15 @@ class Todos extends Component {
         <Header
           leftComponent={{
             text: this.state.currentMonth,
-            style: {
-              color: Colors.charcoal,
-              fontSize: 34,
-              // fontWeight: "bold",
-              fontFamily: "System",
-            },
+            style: material.display1,
           }}
           backgroundColor="#FFF"
           centerComponent={{
             text: "TO DOS",
-            style: { color: Colors.panther, fontSize: 16 },
+            style: material.title,
           }}
           placement="right"
+          containerStyle={{ marginTop: 4, marginBottom: 4 }}
         />
         <ButtonGroup
           onPress={index => this.updateIndex(index)}
