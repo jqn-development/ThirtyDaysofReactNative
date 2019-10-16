@@ -4,7 +4,6 @@ import { FlatList, View, Text, StatusBar } from "react-native";
 import styles from "./Styles/TodosContainerStyles";
 import { Colors } from "../Themes";
 
-import PropTypes from "prop-types";
 import moment from "moment";
 import { ListItem, Icon, Header, ButtonGroup } from "react-native-elements";
 import { material } from "react-native-typography";
@@ -85,13 +84,13 @@ class Todos extends Component {
             text: this.state.currentMonth,
             style: material.display1,
           }}
-          backgroundColor="#FFF"
+          backgroundColor={Colors.snow}
           centerComponent={{
             text: "TO DOS",
             style: material.title,
           }}
           placement="right"
-          containerStyle={{ marginTop: 8, marginBottom: 0 }}
+          containerStyle={styles.headerContainer}
         />
         <ButtonGroup
           onPress={index => this.updateIndex(index)}
@@ -99,16 +98,7 @@ class Todos extends Component {
           buttons={buttons}
           selectedButtonStyle={{ backgroundColor: Colors.steel }}
           containerBorderRadius={0}
-          containerStyle={{
-            marginRight: 1,
-            marginLeft: 1,
-            marginTop: 0,
-            marginBottom: 8,
-            borderTopColor: Colors.cloud,
-            borderBottomColor: Colors.cloud,
-            borderRightColor: Colors.cloud,
-            borderLeftColor: Colors.cloud,
-          }}
+          containerStyle={styles.buttonContainer}
           innerBorderStyle={{ color: Colors.cloud }}
         />
         <View style={styles.list}>
@@ -128,13 +118,5 @@ class Todos extends Component {
     );
   }
 }
-
-Todos.propTypes = {
-  // bla: PropTypes.string,
-};
-
-Todos.defaultProps = {
-  // bla: 'test',
-};
 
 export default Todos;

@@ -2,33 +2,24 @@ import { StyleSheet } from "react-native";
 import { Colors } from "../../Themes";
 
 export default StyleSheet.create({
+  buttonContainer: {
+    borderBottomColor: Colors.cloud,
+    borderLeftColor: Colors.cloud,
+    borderRightColor: Colors.cloud,
+    borderTopColor: Colors.cloud,
+    marginBottom: 8,
+    marginLeft: 1,
+    marginRight: 1,
+    marginTop: 0,
+  },
   container: {
+    backgroundColor: Colors.ricePaper,
     flex: 1,
     position: "relative",
-    backgroundColor: Colors.ricePaper,
   },
-  title: {
-    fontSize: 70,
-    color: Colors.snow,
-    letterSpacing: 2,
-    top: 180,
-    left: 20,
-  },
-  day: {
-    fontSize: 12,
-    color: Colors.snow,
-    textAlign: "right",
-  },
-  small: {
-    fontSize: 16,
-    color: Colors.snow,
-  },
+  headerContainer: { marginBottom: 0, marginTop: 8 },
   list: {
-    marginHorizontal: 16,
-    marginVertical: 16,
-  },
-  listText: {
-    fontSize: 16,
-    color: Colors.charcoal,
+    marginHorizontal: 8,
+    marginVertical: 8,
   },
 });
