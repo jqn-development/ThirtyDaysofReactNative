@@ -9,19 +9,19 @@ export default StyleSheet.create({
   },
   title: {
     fontSize: 70,
-    color: "#fff",
+    color: Colors.snow,
     letterSpacing: 2,
     top: 180,
     left: 20,
   },
   day: {
     fontSize: 12,
-    color: "#fff",
+    color: Colors.snow,
     textAlign: "right",
   },
   small: {
     fontSize: 16,
-    color: "#fff",
+    color: Colors.snow,
   },
   list: {
     marginHorizontal: 16,

@@ -1,25 +1,12 @@
 import React, { Component } from "react";
-import {
-  FlatList,
-  View,
-  Text,
-  StatusBar,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { FlatList, View, Text, StatusBar } from "react-native";
 
 import styles from "./Styles/TodosContainerStyles";
 import { Colors } from "../Themes";
 
 import PropTypes from "prop-types";
 import moment from "moment";
-import {
-  ListItem,
-  Button,
-  Icon,
-  Header,
-  ButtonGroup,
-} from "react-native-elements";
+import { ListItem, Icon, Header, ButtonGroup } from "react-native-elements";
 import { material } from "react-native-typography";
 
 const component1 = () => (
@@ -65,36 +52,7 @@ class Todos extends Component {
     };
   }
 
-  componentDidMount = () => {
-    console.log("Todos mounted");
-  };
-
-  // static getDerivedStateFromError(error) {
-  //   // getDerivedStateFromError -> Update state so the next render will show the fallback UI.
-  //   return { hasError: true };
-  // }
-
-  componentDidCatch(error, info) {
-    // You can also log the error to an error reporting service
-  }
-
-  // getDerivedStateFromProps = (nextProps, prevState) => {
-  //   console.log("Todos getDerivedStateFromProps", nextProps, prevState);
-  // };
-
-  // getSnapshotBeforeUpdate = (prevProps, prevState) => {
-  //   console.log("Todos getSnapshotBeforeUpdate", prevProps, prevState);
-  // };
-
-  componentDidUpdate = () => {
-    console.log("Todos did update");
-  };
-
-  componentWillUnmount = () => {
-    console.log("Todos will unmount");
-  };
-
-  renderItem = ({ item }) => (
+  _renderItem = ({ item }) => (
     <ListItem
       leftIcon={{ name: "dot-single", type: "entypo" }}
       title={item.value}
@@ -107,9 +65,6 @@ class Todos extends Component {
   };
 
   render() {
-    const today = this.state.currentDate;
-    const day = moment(today).format("dddd");
-    const date = moment(today).format("MMMM D, YYYY");
     const buttons = [
       { element: component1 },
       { element: component2 },
@@ -136,7 +91,7 @@ class Todos extends Component {
             style: material.title,
           }}
           placement="right"
-          containerStyle={{ marginTop: 4, marginBottom: 4 }}
+          containerStyle={{ marginTop: 8, marginBottom: 0 }}
         />
         <ButtonGroup
           onPress={index => this.updateIndex(index)}
@@ -166,23 +121,9 @@ class Todos extends Component {
               { key: "e", value: "HITT workout" },
               { key: "f", value: "Brush Teeth" },
             ]}
-            // renderItem={({ item }) => (
-            //   <Text style={styles.listText}>{item.value}</Text>
-            // )}
-            renderItem={this.renderItem}
+            renderItem={({ item }) => this._renderItem({ item })}
           />
         </View>
-        {/* <Text style={styles.title}>Portfolio</Text>
-        <View style={styles.content}>
-          <Text style={styles.day}>{day}</Text>
-          <Text style={styles.small}>{date}</Text>
-        </View> */}
-        {/* <TouchableOpacity
-          style={styles.circle}
-          onPress={() => this.props.navigation.navigate("News")}
-        >
-          <Icon raised name="send" color="#000" size={60} />
-        </TouchableOpacity> */}
       </View>
     );
   }
