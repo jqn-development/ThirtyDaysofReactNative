@@ -5,8 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     position: "relative",
-    // backgroundColor: "orange",
-    backgroundColor: "#FFF",
+    backgroundColor: Colors.ricePaper,
   },
   title: {
     fontSize: 70,

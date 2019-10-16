@@ -1,14 +1,57 @@
-import React, { PureComponent } from "react";
-import { FlatList, View, Text, TouchableOpacity } from "react-native";
+import React, { Component } from "react";
+import {
+  FlatList,
+  View,
+  Text,
+  StatusBar,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 import styles from "./Styles/TodosContainerStyles";
 import { Colors } from "../Themes";
 
 import PropTypes from "prop-types";
 import moment from "moment";
-import { ListItem, Button, Icon, Header } from "react-native-elements";
+import {
+  ListItem,
+  Button,
+  Icon,
+  Header,
+  ButtonGroup,
+} from "react-native-elements";
 
-class Todos extends PureComponent {
+const component1 = () => (
+  <Icon
+    name="clock"
+    type="material-community"
+    color={Colors.charcoal}
+    size={35}
+    onPress={() => console.log("hello")}
+  />
+);
+
+const component2 = () => (
+  <Icon
+    name="chart-areaspline"
+    type="material-community"
+    color={Colors.charcoal}
+    size={35}
+    onPress={() => console.log("hello")}
+  />
+);
+
+const component3 = () => (
+  <Icon
+    name="ios-add"
+    type="ionicon"
+    color={Colors.charcoal}
+    size={35}
+    onPress={() => console.log("hello")}
+  />
+);
+
+class Todos extends Component {
   constructor(props) {
     super(props);
 
@@ -17,6 +60,7 @@ class Todos extends PureComponent {
       currentDate: new Date(),
       markedDate: moment(new Date()).format("YYYY-MM-DD"),
       currentMonth: moment().format("MMMM"),
+      selectedIndex: 2,
     };
   }
 
@@ -56,10 +100,19 @@ class Todos extends PureComponent {
     />
   );
 
+  updateIndex = selectedIndex => {
+    this.setState({ selectedIndex });
+  };
+
   render() {
     const today = this.state.currentDate;
     const day = moment(today).format("dddd");
     const date = moment(today).format("MMMM D, YYYY");
+    const buttons = [
+      { element: component1 },
+      { element: component2 },
+      { element: component3 },
+    ];
     if (this.state.hasError) {
       return (
         <View style={styles.TodosWrapper}>
@@ -69,6 +122,7 @@ class Todos extends PureComponent {
     }
     return (
       <View style={styles.container}>
+        <StatusBar backgroundColor="blue" barStyle="default" />
         <Header
           leftComponent={{
             text: this.state.currentMonth,
@@ -85,6 +139,24 @@ class Todos extends PureComponent {
             style: { color: Colors.panther, fontSize: 16 },
           }}
           placement="right"
+        />
+        <ButtonGroup
+          onPress={index => this.updateIndex(index)}
+          selectedIndex={this.state.selectedIndex}
+          buttons={buttons}
+          selectedButtonStyle={{ backgroundColor: Colors.steel }}
+          containerBorderRadius={0}
+          containerStyle={{
+            marginRight: 1,
+            marginLeft: 1,
+            marginTop: 0,
+            marginBottom: 8,
+            borderTopColor: Colors.cloud,
+            borderBottomColor: Colors.cloud,
+            borderRightColor: Colors.cloud,
+            borderLeftColor: Colors.cloud,
+          }}
+          innerBorderStyle={{ color: Colors.cloud }}
         />
         <View style={styles.list}>
           <FlatList
